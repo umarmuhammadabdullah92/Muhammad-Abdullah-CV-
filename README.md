@@ -4,7 +4,7 @@ Digital Marketer & Web Developer — Gujrat, Pakistan.
 
 Static multi-page CV site with profile, skills, projects, education (BISE Gujranwala result cards) and contact, plus a print-ready full CV page.
 
-Live: [https://muhammad-abdullah-cv.vercel.app](https://muhammad-abdullah-cv.vercel.app) *(pending deploy)*
+Live: **https://muhammad-abdullah-cv.vercel.app**
 
 ## Pages
 - `index.html` — Overview
