@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Muhammad Abdullah | Digital Marketer & Web Developer</title>
+<title>Muhammad Abdullah | Digital Marketer &amp; Web Developer</title>
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#a7791c">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-180.png">
 <script>try{var s=localStorage.getItem('cv-theme');if(!s&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)s='dark';if(s==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
-<meta name="description" content="Professional CV of Muhammad Abdullah — Digital Marketer & Web Developer from Gujrat, Pakistan.">
+<meta name="description" content="Portfolio of Muhammad Abdullah — Digital Marketer &amp; Web Developer from Gujrat, Pakistan. Data-driven marketing, local SEO and fast modern websites for local brands.">
 <link rel="preload" href="abdullah-opt.webp" as="image" fetchpriority="high">
 <link rel="preload" href="fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -965,11 +965,183 @@ footer a:hover{color:var(--gold-3)}
   .pagenav a{padding:14px 12px}
 }
 
+/* ================= PROFESSIONAL PORTFOLIO ================= */
+/* full-width landing layout (no sidebar) on desktop */
+.page.portfolio{display:block;max-width:100%}
+.page.portfolio aside{display:none}
+@media(min-width:900px){
+  .page.portfolio{display:block}
+  .page.portfolio main{padding:34px 40px 42px}
+}
+@media(min-width:1200px){.page.portfolio main{padding:44px 58px 46px}}
+
+/* reveal animation base (pages use .reveal + .in via JS) */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* brand bar above nav */
+.brandbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:0 0 16px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.brand{font-family:var(--serif);font-weight:800;font-size:1.18rem;letter-spacing:.3px;color:var(--gold);text-decoration:none;line-height:1}
+.brand span{color:var(--gold-3)}
+.brand-role{font-size:.64rem;letter-spacing:2.6px;text-transform:uppercase;color:var(--muted)}
+.avail{
+  margin-left:auto;display:inline-flex;align-items:center;gap:8px;
+  font-size:.64rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold-2);border:1px solid rgba(167,121,28,.45);
+  background:var(--gold-soft);padding:7px 13px;border-radius:99px;
+}
+.avail .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
+
+/* hero */
+.hero{display:grid;gap:30px;align-items:center;margin-bottom:10px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.66rem;font-weight:600;letter-spacing:2.6px;text-transform:uppercase;
+  color:var(--gold-2);background:var(--gold-soft);
+  border:1px solid rgba(167,121,28,.35);padding:8px 15px;border-radius:99px;margin-bottom:18px;
+}
+.hero-badge .hdot{width:7px;height:7px;border-radius:50%;background:var(--gold-2)}
+.hero h1{max-width:640px;margin-bottom:16px;color:var(--gold-3)}
+.hero h1 .accent{color:var(--gold-2);position:relative;white-space:nowrap}
+.hero h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:6px;background:rgba(167,121,28,.22);border-radius:99px;z-index:-1}
+.hero-sub{font-size:clamp(.95rem,1.6vmax,1.06rem);color:var(--muted);font-weight:300;max-width:560px;margin-bottom:24px;line-height:1.65}
+.hero-sub b{color:var(--gold-2);font-weight:500}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.hero-cta .btn{flex:0 1 auto;justify-content:center}
+.hero-social{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.hero-social a{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.7rem;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;color:var(--muted);
+  text-decoration:none;border:1px solid var(--line);background:rgba(255,255,255,.55);
+  padding:8px 13px;border-radius:99px;transition:.25s;
+}
+.hero-social a:hover{color:var(--gold-2);border-color:rgba(167,121,28,.55);transform:translateY(-2px)}
+[data-theme=dark] .hero-social a{background:rgba(255,255,255,.04)}
+
+.hero-media{position:relative;justify-self:center;width:100%;max-width:330px}
+.hero-photo{
+  position:relative;border-radius:24px;overflow:hidden;aspect-ratio:1/1.08;
+  background:linear-gradient(160deg,#f1e7d2,#e2cfa3);border:1px solid rgba(167,121,28,.45);
+  box-shadow:0 30px 60px rgba(88,66,20,.28),0 0 0 1px rgba(167,121,28,.1);
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 14%;display:block;filter:sepia(.1) contrast(1.03)}
+.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(43,36,26,.28))}
+.hero-glow{position:absolute;inset:-16%;background:radial-gradient(circle,rgba(167,121,28,.32),transparent 65%);z-index:-1;filter:blur(8px)}
+.float-badge{
+  position:absolute;display:inline-flex;align-items:center;gap:6px;
+  font-size:.7rem;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;
+  padding:9px 14px;border-radius:99px;color:#221906;
+  background:linear-gradient(180deg,#e8c766,#c79c35);
+  box-shadow:0 14px 28px rgba(167,121,28,.35);
+  animation:floaty 5.2s ease-in-out infinite;
+}
+.float-badge .fb-ic{font-size:.78rem}
+.float-badge.b1{top:7%;left:-12%}
+.float-badge.b2{top:45%;right:-13%;animation-delay:1.3s}
+.float-badge.b3{bottom:6%;left:-9%;animation-delay:2.2s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* stats strip */
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.stat{
+  background:linear-gradient(160deg,rgba(167,121,28,.08),rgba(255,255,255,.5));
+  border:1px solid var(--line);border-radius:12px;padding:20px 14px;text-align:center;transition:.3s;
+}
+.stat:hover{transform:translateY(-4px);border-color:rgba(167,121,28,.5);box-shadow:0 16px 32px rgba(88,66,20,.12)}
+.stat .n{font-family:var(--serif);font-size:1.9rem;font-weight:800;color:var(--gold-2);line-height:1}
+.stat .l{font-size:.64rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:8px;line-height:1.4}
+[data-theme=dark] .stat{background:linear-gradient(160deg,rgba(199,156,53,.1),rgba(255,255,255,.02))}
+
+/* what i do */
+.services{display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:22px}
+.service{
+  position:relative;border-radius:12px;overflow:hidden;
+  background:linear-gradient(160deg,rgba(255,255,255,.7),rgba(255,255,255,.35));
+  border:1px solid var(--line);padding:20px 18px;transition:.3s;
+}
+.service::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold-2),transparent);transform:scaleX(0);transform-origin:left;transition:.4s}
+.service:hover{transform:translateY(-5px);border-color:rgba(167,121,28,.5);box-shadow:0 18px 36px rgba(88,66,20,.14)}
+.service:hover::before{transform:scaleX(1)}
+.service .sv-ic{
+  width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.1rem;
+  background:var(--gold-soft);border:1px solid rgba(167,121,28,.35);color:var(--gold-2);margin-bottom:14px;
+}
+.service h3{font-family:var(--serif);font-size:1.02rem;font-weight:700;color:var(--gold-3);margin:0 0 7px;text-transform:none;letter-spacing:.2px}
+.service p{font-size:.86rem;color:var(--muted);font-weight:300;margin:0;line-height:1.6}
+[data-theme=dark] .service{background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02))}
+
+/* featured work */
+.featured{display:grid;grid-template-columns:1fr;gap:16px;margin-bottom:22px}
+.feat{
+  display:flex;flex-direction:column;border-radius:12px;overflow:hidden;
+  background:rgba(255,255,255,.6);border:1px solid var(--line);
+  text-decoration:none;color:inherit;transition:.3s;
+}
+.feat:hover{transform:translateY(-6px);border-color:rgba(167,121,28,.5);box-shadow:0 22px 44px rgba(88,66,20,.16)}
+.feat .f-img{position:relative;background:linear-gradient(160deg,#f3ead7,#e9dbb6);padding:34px 0;display:grid;place-items:center}
+.feat .f-tag{
+  position:absolute;top:12px;left:12px;z-index:1;
+  font-size:.6rem;font-weight:700;letter-spacing:1.7px;text-transform:uppercase;
+  background:rgba(43,36,26,.8);color:#f4ead2;padding:4px 10px;border-radius:99px;backdrop-filter:blur(4px);
+}
+.feat .f-img img{width:88px;height:88px;object-fit:contain;border-radius:50%;background:#fff;border:1px solid rgba(167,121,28,.5);padding:6px;box-shadow:0 14px 30px rgba(88,66,20,.22);transition:.4s}
+.feat:hover .f-img img{transform:scale(1.09) rotate(-4deg)}
+.feat .f-body{padding:16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.feat h3{font-family:var(--serif);font-size:1.04rem;font-weight:700;color:var(--gold-3);margin:0;text-transform:none;letter-spacing:.2px}
+.feat p{font-size:.85rem;color:var(--muted);font-weight:300;margin:0;line-height:1.6;flex:1}
+.feat .f-links{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:4px}
+.feat .f-links a{font-size:.68rem;font-weight:600;letter-spacing:1.3px;text-transform:uppercase;color:var(--gold-2);text-decoration:none;border-bottom:1px solid rgba(167,121,28,.4);transition:.2s;padding-bottom:1px}
+.feat .f-links a:hover{color:var(--gold-3);border-color:var(--gold)}
+[data-theme=dark] .feat{background:rgba(255,255,255,.04)}
+[data-theme=dark] .feat .f-img{background:linear-gradient(160deg,#241f16,#1a1610)}
+[data-theme=dark] .feat .f-img img{background:#fff}
+
+/* mission quote */
+.mission{
+  position:relative;overflow:hidden;border-radius:14px;
+  background:linear-gradient(120deg,rgba(167,121,28,.13),rgba(167,121,28,.05));
+  border:1px solid rgba(167,121,28,.4);padding:26px 22px;margin-bottom:28px;
+}
+.mission::before{content:"\201C";position:absolute;top:-34px;left:2px;font-family:var(--serif);font-size:9rem;color:rgba(167,121,28,.16);line-height:1;pointer-events:none}
+.mission p{position:relative;margin:0;font-family:var(--serif);font-size:clamp(1.05rem,2vmax,1.28rem);color:var(--gold-3);line-height:1.55;font-weight:600}
+.mission p b{color:var(--gold-2)}
+.mission .who{position:relative;display:block;margin-top:14px;font-family:var(--sans);font-size:.7rem;font-weight:600;letter-spacing:2.6px;text-transform:uppercase;color:var(--muted)}
+[data-theme=dark] .mission{background:linear-gradient(120deg,rgba(199,156,53,.16),rgba(199,156,53,.04))}
+[data-theme=dark] .mission p{color:var(--gold-2)}
+
+/* cta banner */
+.cta{
+  display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:10px;position:relative;overflow:hidden;
+  border-radius:14px;padding:30px 26px;
+  background:linear-gradient(120deg,#100d08,#241d11 55%,#33270f);
+  border:1px solid rgba(167,121,28,.5);box-shadow:0 30px 60px rgba(0,0,0,.45);
+}
+.cta::before{content:"";position:absolute;inset:0;background:radial-gradient(640px 220px at 82% -22%,rgba(232,199,102,.34),transparent 62%)}
+.cta > *{position:relative}
+.cta h2{font-family:var(--serif);color:#f4ead2;font-size:clamp(1.3rem,2.6vmax,1.85rem);text-transform:none;letter-spacing:.4px;margin:0}
+.cta p{color:#cbbfa0;font-size:.92rem;font-weight:300;margin:0;max-width:520px;line-height:1.6}
+.cta .btn.primary{background:linear-gradient(180deg,#ecd079,#c79c35);box-shadow:0 16px 34px rgba(0,0,0,.4)}
+.cta .btn.ghost{color:#f4ead2;border-color:rgba(244,234,210,.45)}
+.cta .btn.ghost:hover{background:rgba(244,234,210,.08)}
+
+/* portfolio responsive grids */
+@media(min-width:640px){
+  .stats{grid-template-columns:repeat(4,1fr);gap:14px}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .featured{grid-template-columns:repeat(3,1fr)}
+  .cta{flex-direction:row;align-items:center;justify-content:space-between}
+}
+@media(min-width:900px){
+  .hero{grid-template-columns:1.25fr .75fr}
+  .services{grid-template-columns:repeat(4,1fr)}
+}
+
 </style>
 </head>
 <body>
 <button id="themeBtn" class="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">&#9681;</button>
-
 
 <div class="scroll-progress" id="scrollProgress"></div>
 <button class="to-top" id="toTop" aria-label="Back to top">&#9650;</button>
@@ -993,73 +1165,15 @@ footer a:hover{color:var(--gold-3)}
   <button class="mnav-arrow next" aria-label="Next page">&#10095;</button>
 </nav>
 
-<div class="page">
-  <!-- ================= SIDEBAR ================= -->
+<div class="page portfolio">
 
-  <aside>
-    <div class="photo-wrap">
-      <div class="photo-frame">
-        <img src="abdullah-opt.webp" alt="Muhammad Abdullah" width="500" height="500">
-        <div class="photo-dot"><span></span><span></span><span></span></div>
-      </div>
-    </div>
-
-    <div class="ornament">&#10022;</div>
-    <div class="side-name"><a href="index.html">Muhammad Abdullah</a></div>
-    <div class="side-role">Digital Marketer</div>
-    <div class="rule"></div>
-
-    <div class="side-block block-contact">
-      <div class="side-title">Contact</div>
-      <ul class="contact">
-        <li><span class="ic">&#127963;</span><span>Gujrat, Punjab, Pakistan</span></li>
-        <li><span class="ic">&#9742;</span><a href="tel:03190785652">0319-0785652</a></li>
-        <li><span class="ic">&#128172;</span><a href="https://wa.me/923190785652" target="_blank" rel="noopener">WhatsApp Chat</a></li>
-        <li><span class="ic">&#9993;</span><a href="mailto:umarmuhammadabdullah92@gmail.com">umarmuhammadabdullah92@gmail.com</a></li>
-        <li><span class="ic">&#9672;</span><span>Digital &amp; Web Portfolio</span></li>
-      </ul>
-    </div>
-
-    <div class="side-block block-skills">
-      <div class="side-title">Core Skills</div>
-      <div class="skill">
-        <div class="skill-top"><span>Digital Marketing</span><b>90%</b></div>
-        <div class="bar"><i data-w="90"></i></div>
-      </div>
-      <div class="skill">
-        <div class="skill-top"><span>Social Media Marketing</span><b>88%</b></div>
-        <div class="bar"><i data-w="88"></i></div>
-      </div>
-      <div class="skill">
-        <div class="skill-top"><span>SEO &amp; Content Strategy</span><b>82%</b></div>
-        <div class="bar"><i data-w="82"></i></div>
-      </div>
-      <div class="skill">
-        <div class="skill-top"><span>Web Development</span><b>85%</b></div>
-        <div class="bar"><i data-w="85"></i></div>
-      </div>
-      <div class="skill">
-        <div class="skill-top"><span>AI-Assisted Tools</span><b>92%</b></div>
-        <div class="bar"><i data-w="92"></i></div>
-      </div>
-      <div class="skill">
-        <div class="skill-top"><span>Campaign Analytics</span><b>80%</b></div>
-        <div class="bar"><i data-w="80"></i></div>
-      </div>
-    </div>
-
-    <div class="side-block block-langs">
-      <div class="side-title">Languages</div>
-      <div class="langs">
-        <div class="lang"><span>Urdu</span><b>Native</b></div>
-        <div class="lang"><span>Punjabi</span><b>Native</b></div>
-        <div class="lang"><span>English</span><b>Basic Understanding / Everyday Communication</b></div>
-      </div>
-    </div>
-  </aside>
-
-  <!-- ================= MAIN ================= -->
   <main>
+    <div class="brandbar">
+      <a class="brand" href="index.html">Muhammad<span> Abdullah</span></a>
+      <div class="brand-role">Digital Marketer &amp; Web Developer</div>
+      <span class="avail"><span class="dot"></span>Available for Hire</span>
+    </div>
+
     <nav class="topnav">
       <a href="index.html" class="active">Overview</a>
       <a href="skills.html">Skills</a>
@@ -1069,34 +1183,119 @@ footer a:hover{color:var(--gold-3)}
       <a href="print-cv.html" title="Full single-page CV for print or PDF">Full CV</a>
       <button class="nav-print" onclick="window.print()">Print / PDF</button>
     </nav>
-    
-    <header>
-      <div class="kicker">&#10022; &nbsp;Available for Hire&nbsp; &#10022;</div>
-      <h1>Muhammad Abdullah</h1>
-      <p class="headline">Digital Marketer &amp; Web Developer &mdash; growing local brands with <b>data-driven campaigns</b> and crafting modern, responsive websites.</p>
 
-      <div class="actions">
-        <a class="btn primary" href="contact.html">&#9993; Hire Me</a>
-        <a class="btn ghost" href="tel:03190785652">&#9742; 0319-0785652</a>
-        <a class="btn ghost" href="projects.html">&#10022; View Projects</a>
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-badge"><span class="hdot"></span>Digital Marketer &middot; Web Developer &middot; Gujrat, Pakistan</div>
+        <h1>Turning local brands into <span class="accent">online growth</span> stories.</h1>
+        <p class="hero-sub">I help businesses get <b>found</b>, get <b>followed</b>, and get <b>customers</b> &mdash; with data-driven campaigns, local SEO, and fast, modern websites built through AI-assisted workflows.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="contact.html">&#9993; Hire Me</a>
+          <a class="btn ghost" href="projects.html">View Projects</a>
+          <a class="btn ghost" href="print-cv.html">&#11015; Download CV</a>
+        </div>
+        <div class="hero-social">
+          <a href="https://wa.me/923190785652" target="_blank" rel="noopener">&#128172; WhatsApp</a>
+          <a href="mailto:umarmuhammadabdullah92@gmail.com">&#9993; Email</a>
+          <a href="tel:03190785652">&#9742; Phone</a>
+          <a href="contact.html">&#10022; Let&rsquo;s Talk</a>
+        </div>
       </div>
-    </header>
+      <div class="hero-media">
+        <div class="hero-glow"></div>
+        <div class="hero-photo">
+          <img src="abdullah-opt.webp" alt="Muhammad Abdullah" width="500" height="500">
+        </div>
+        <div class="float-badge b1"><span class="fb-ic">&#128200;</span>Digital Marketing</div>
+        <div class="float-badge b2"><span class="fb-ic">&#128187;</span>Web Development</div>
+        <div class="float-badge b3"><span class="fb-ic">&#128269;</span>SEO &amp; Growth</div>
+      </div>
+    </section>
+
+    <section class="reveal stats">
+      <div class="stat"><div class="n"><b data-count="3">3</b>+</div><div class="l">Live Projects</div></div>
+      <div class="stat"><div class="n"><b data-count="6">6</b>+</div><div class="l">Core Skills</div></div>
+      <div class="stat"><div class="n"><b data-count="12">12</b></div><div class="l">Years of Schooling</div></div>
+      <div class="stat"><div class="n"><b data-count="3">3</b></div><div class="l">Languages</div></div>
+    </section>
 
     <section class="reveal">
       <div class="sec-head">
         <div class="sec-icon">&#10070;</div>
-        <h2>Professional Summary</h2>
+        <h2>What I Do</h2>
         <div class="sec-line"></div>
       </div>
-      <div class="summary">
-        Creative <strong>Digital Marketer</strong> with hands-on experience in growing local brands, increasing online reach, and running performance-driven marketing campaigns. Certified through the <strong>Bano Qabil</strong> Digital Marketing program, with a bonus ability to quickly build modern, responsive websites using smart AI-assisted tools. Eager to bring fresh energy, dedication, and hard work to the digital marketing team at <strong>Humara Safar (Pvt.) Ltd.</strong>
+      <div class="services">
+        <div class="service">
+          <div class="sv-ic">&#128227;</div>
+          <h3>Digital Marketing &amp; Strategy</h3>
+          <p>Social media marketing, target-customer outreach, brand promotions and campaign planning that turn attention into action.</p>
+        </div>
+        <div class="service">
+          <div class="sv-ic">&#128269;</div>
+          <h3>SEO &amp; Search Visibility</h3>
+          <p>Local SEO and search optimization that put local businesses on the map &mdash; more visibility, more traffic, more customers.</p>
+        </div>
+        <div class="service">
+          <div class="sv-ic">&#127912;</div>
+          <h3>Content &amp; Social Engagement</h3>
+          <p>Attractive promotional creatives, content planning and outreach that build strong, lasting brand awareness.</p>
+        </div>
+        <div class="service">
+          <div class="sv-ic">&#128421;</div>
+          <h3>Web Development</h3>
+          <p>Modern, mobile-friendly landing pages and websites built fast with AI-assisted tools &mdash; a marketing edge, not just a website.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="sec-head">
+        <div class="sec-icon">&#128188;</div>
+        <h2>Featured Work</h2>
+        <div class="sec-line"></div>
+      </div>
+      <div class="featured">
+        <a class="feat" href="projects.html">
+          <div class="f-img"><span class="f-tag">Local Brand</span><img class="proj-logo" src="umar-logo.webp" alt="Umar Hayat Chaska Point logo" loading="lazy" width="512" height="512"></div>
+          <div class="f-body">
+            <h3>Umar Hayat Chaska Point</h3>
+            <p>Full digital marketing presence, social profiles and website for a local food brand &mdash; driven by local SEO and targeted promotions.</p>
+            <div class="f-links">
+              <a href="https://umar-hayat-chaska-point.vercel.app" target="_blank" rel="noopener">Live Website &rarr;</a>
+              <a href="projects.html">Full Case &rarr;</a>
+            </div>
+          </div>
+        </a>
+        <a class="feat" href="projects.html">
+          <div class="f-img"><span class="f-tag">E-Commerce</span><img class="proj-logo" src="gulnish-logo.webp" alt="Gulnish Crochet logo" loading="lazy" width="400" height="400"></div>
+          <div class="f-body">
+            <h3>Gulnish Crochet</h3>
+            <p>E-commerce web app for handcrafted crochet products with mobile-responsive presentation, product showcase and digital outreach.</p>
+            <div class="f-links">
+              <a href="https://gulnish-crochet.vercel.app" target="_blank" rel="noopener">Live Website &rarr;</a>
+              <a href="projects.html">Full Case &rarr;</a>
+            </div>
+          </div>
+        </a>
+        <a class="feat" href="projects.html">
+          <div class="f-img"><span class="f-tag">Current Project</span><img class="proj-logo" src="europizza-logo.webp" alt="Euro Pizza Cafe logo" loading="lazy" width="400" height="400"></div>
+          <div class="f-body">
+            <h3>Euro Pizza Caf&eacute;</h3>
+            <p>Multi-page app with menu categories, promotional deals and custom local ordering copy to expand online food delivery presence.</p>
+            <div class="f-links">
+              <a href="https://euro-pizza.vercel.app" target="_blank" rel="noopener">Live Website &rarr;</a>
+              <a href="projects.html">Full Case &rarr;</a>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
 
     <section class="reveal">
       <div class="sec-head">
         <div class="sec-icon">&#10041;</div>
-        <h2>Highlights</h2>
+        <h2>Why Work With Me</h2>
         <div class="sec-line"></div>
       </div>
       <div class="facts">
@@ -1119,40 +1318,21 @@ footer a:hover{color:var(--gold-3)}
       </div>
     </section>
 
-    <section class="reveal">
-      <div class="sec-head">
-        <div class="sec-icon">&#128188;</div>
-        <h2>Key Projects</h2>
-        <div class="sec-line"></div>
-      </div>
-      <div class="cards">
-        <a class="card" href="projects.html" style="text-decoration:none">
-          <div class="top"><img class="proj-logo" src="umar-logo.webp" alt="Umar Hayat Chaska Point logo" loading="lazy" width="512" height="512"><h4>Umar Hayat Chaska Point</h4></div>
-          <p>Digital marketing presence, social profiles &amp; website for a local food brand, driven by local SEO.</p>
-          <span class="status">Live Website &rarr;</span>
-        </a>
-        <a class="card" href="projects.html" style="text-decoration:none">
-          <div class="top"><img class="proj-logo" src="gulnish-logo.webp" alt="Gulnish Crochet logo" loading="lazy" width="400" height="400"><h4>Gulnish Crochet</h4></div>
-          <p>E-commerce web app for handcrafted crochet products with mobile-responsive product presentation.</p>
-          <span class="status">Live Website &rarr;</span>
-        </a>
-        <a class="card" href="projects.html" style="text-decoration:none">
-          <div class="top"><img class="proj-logo" src="europizza-logo.webp" alt="Euro Pizza logo" loading="lazy" width="400" height="400"><h4>Euro Pizza Caf&eacute;</h4></div>
-          <p>Multi-page site with menu categories, promotional deals and custom ordering copy.</p>
-          <span class="status">Current Project &rarr;</span>
-        </a>
-      </div>
+    <section class="reveal mission">
+      <p>Excited to bring <b>fresh energy, dedication, and hard work</b> to a digital marketing team &mdash; helping grow online reach, engage customers, and turn content into <b>measurable results</b>.</p>
+      <span class="who">Muhammad Abdullah &mdash; Digital Marketer &amp; Web Developer</span>
     </section>
 
     <section class="reveal">
-      <div class="sec-head">
-        <div class="sec-icon">&#10070;</div>
-        <h2>Career Objective</h2>
-        <div class="sec-line"></div>
-      </div>
-      <div class="goal">
-        <div class="big">&ldquo;</div>
-        <p>Excited to bring <b>fresh energy, dedication, and hard work</b> to the digital marketing team at <b>Humara Safar (Pvt.) Ltd.</b> &mdash; helping grow online reach, engage travelers, and turn content into measurable results.</p>
+      <div class="cta">
+        <div>
+          <h2>Have a project &mdash; or a spot on your marketing team?</h2>
+          <p>I&rsquo;m open for freelance work, internships and full-time digital marketing roles. Let&rsquo;s talk about growing your online reach.</p>
+        </div>
+        <div class="hero-cta">
+          <a class="btn primary" href="contact.html">&#9993; Hire Me</a>
+          <a class="btn ghost" href="https://wa.me/923190785652" target="_blank" rel="noopener">&#128172; WhatsApp</a>
+        </div>
       </div>
     </section>
 
@@ -1160,6 +1340,7 @@ footer a:hover{color:var(--gold-3)}
       <span></span>
       <a class="next" href="skills.html"><span class="dir">Next &rarr;</span><span class="name">Skills</span></a>
     </div>
+
     <footer>
       <div class="f-row">
         <span>Muhammad Abdullah &mdash; Digital Marketer &amp; Web Developer</span>
@@ -1198,6 +1379,23 @@ footer a:hover{color:var(--gold-3)}
     es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  var cio=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      cio.unobserve(e.target);
+      var el=e.target,target=(+el.getAttribute('data-count'))||0,t0=Date.now(),dur=1200;
+      function tick(){
+        var s=Math.min(1,(Date.now()-t0)/dur),v=Math.round(target*(1-Math.pow(1-s,3)));
+        el.textContent=v;
+        if(s<1)requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  },{threshold:.5});
+  setTimeout(function(){
+    document.querySelectorAll('[data-count]').forEach(function(el){cio.observe(el);});
+  },400);
 })();
 </script>
 
