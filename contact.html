@@ -106,6 +106,53 @@
 .theme-btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(88,66,20,.32)}
 [data-theme=dark] .theme-btn{background:rgba(33,28,20,.95);color:#e0bb4f;border-color:rgba(224,187,79,.4)}
 
+/* ---------- MOBILE PAGE NAV (arrows + tabs above contact bar) ---------- */
+.mob-nav{
+  position:fixed;left:0;right:0;bottom:68px;z-index:65;
+  display:flex;align-items:center;gap:6px;
+  padding:6px 10px calc(6px + env(safe-area-inset-bottom,0px));
+  pointer-events:none;
+}
+.mob-nav>*{pointer-events:auto}
+.mob-nav .mnav-arrow{
+  flex:0 0 40px;height:40px;border-radius:50%;
+  border:1px solid rgba(167,121,28,.5);
+  background:rgba(250,246,237,.94);
+  color:var(--gold-2);font-size:1rem;cursor:pointer;
+  display:grid;place-items:center;transition:.2s;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  box-shadow:0 8px 18px rgba(88,66,20,.15);
+  font-family:var(--sans);
+}
+.mob-nav .mnav-arrow:active{transform:scale(.94)}
+.mob-nav .mnav-arrow:disabled{opacity:.35;pointer-events:none}
+.mob-nav .mnav-pages{
+  flex:1;display:flex;gap:5px;overflow-x:auto;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+  padding:3px 2px;mask-image:linear-gradient(90deg,#000 92%,transparent);
+}
+.mob-nav .mnav-pages::-webkit-scrollbar{display:none}
+.mob-nav .mnav-p{
+  flex:1 0 auto;
+  font-size:.68rem;font-weight:600;letter-spacing:1px;
+  text-transform:uppercase;text-decoration:none;
+  color:var(--muted);padding:10px 12px;text-align:center;
+  border-radius:9px;border:1px solid transparent;white-space:nowrap;
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  box-shadow:0 6px 14px rgba(88,66,20,.1);
+  transition:.2s;
+}
+[data-theme=dark] .mob-nav .mnav-p{background:rgba(33,28,20,.9);color:var(--muted)}
+.mob-nav .mnav-p.active{
+  color:#2b1f07;
+  background:linear-gradient(180deg,#e0bd5e,#c79c35);
+  border-color:var(--gold);
+  box-shadow:0 8px 18px rgba(167,121,28,.28);
+}
+[data-theme=dark] .mob-nav .mnav-p.active{color:#1c1710}
+[data-theme=dark] .mob-nav .mnav-arrow{background:rgba(33,28,20,.95);color:#e0bb4f;border-color:rgba(224,187,79,.4)}
+
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
@@ -807,6 +854,7 @@ footer a:hover{color:var(--gold-3)}
   .topnav .nav-print{margin-left:auto}
   body{padding-bottom:30px}
   .mob-bar{display:none}
+  .mob-nav{display:none}
   section{margin-bottom:32px}
   .theme-btn{bottom:24px;right:76px}
   .cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
@@ -844,7 +892,7 @@ footer a:hover{color:var(--gold-3)}
   body{background:#fff;color:#222;padding:0}
   body::before,body::after,.scroll-progress{display:none}
   .page{box-shadow:none;border:1px solid #c9a227;border-radius:0;display:grid;grid-template-columns:300px 1fr;max-width:100%}
-  .btn,.topnav,.pagenav,.to-top,.mob-bar,.theme-btn{display:none}
+  .btn,.topnav,.pagenav,.to-top,.mob-bar,.mob-nav,.theme-btn{display:none}
   aside{background:#f7f3e8}
   :root{
     --text:#22201a;--muted:#6f664f;
@@ -904,9 +952,10 @@ footer a:hover{color:var(--gold-3)}
   h1{font-size:clamp(1.7rem, 6vmax, 2.2rem)}
   .kicker{letter-spacing:2.6px}
 
-  /* fixed controls sit above the sticky contact bar */
-  .to-top{bottom:86px;right:14px;width:46px;height:46px}
-  .theme-btn{bottom:86px;right:70px;width:46px;height:46px}
+  /* fixed controls sit above the sticky contact bar + page nav */
+  body{padding-bottom:158px}
+  .to-top{bottom:132px;right:14px;width:46px;height:46px}
+  .theme-btn{bottom:132px;right:70px;width:46px;height:46px}
 
   /* comfortable tap targets on links/cards */
   .edu-link{padding:8px 2px}
@@ -931,6 +980,18 @@ footer a:hover{color:var(--gold-3)}
   <a href="mailto:umarmuhammadabdullah92@gmail.com">&#9993; Email</a>
   <button onclick="window.print()">&#11015; CV</button>
 </div>
+
+<nav class="mob-nav" aria-label="Pages">
+  <button class="mnav-arrow prev" aria-label="Previous page">&#10094;</button>
+  <div class="mnav-pages">
+      <a class="mnav-p" href="index.html">Overview</a>
+      <a class="mnav-p" href="skills.html">Skills</a>
+      <a class="mnav-p" href="projects.html">Projects</a>
+      <a class="mnav-p" href="education.html">Education</a>
+      <a class="mnav-p active" href="contact.html">Contact</a>
+    </div>
+  <button class="mnav-arrow next" aria-label="Next page">&#10095;</button>
+</nav>
 
 <div class="page">
   <!-- ================= SIDEBAR ================= -->
@@ -1149,6 +1210,18 @@ footer a:hover{color:var(--gold-3)}
   if(btn)btn.addEventListener('click',function(){t=t==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);sync();try{localStorage.setItem('cv-theme',t)}catch(e){}});
   if('serviceWorker' in navigator&&location.protocol==='https:')addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});
 })();
+
+  var nav=document.querySelector('.mob-nav');
+  if(nav){
+    var links=Array.prototype.slice.call(nav.querySelectorAll('.mnav-p'));
+    var idx=links.findIndex(function(a){return a.classList.contains('active')});
+    function mnavGo(d){var t=links[idx+d];if(t){location.href=t.getAttribute('href')}}
+    var p=nav.querySelector('.prev'),n=nav.querySelector('.next');
+    if(p){if(idx<=0)p.disabled=true;p.addEventListener('click',function(){mnavGo(-1)})}
+    if(n){if(idx>=links.length-1)n.disabled=true;n.addEventListener('click',function(){mnavGo(1)})}
+    var pages=nav.querySelector('.mnav-pages');
+    if(pages&&links[idx])setTimeout(function(){pages.scrollLeft=links[idx].offsetLeft-pages.clientWidth/2+links[idx].clientWidth/2},250);
+  }
 </script>
 </body>
 </html>
