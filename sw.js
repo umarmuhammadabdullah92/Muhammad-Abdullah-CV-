@@ -1,7 +1,11 @@
-const CACHE = "cv-v1";
+const CACHE = "cv-v2";
 const CORE = [
   "/",
   "/index.html",
+  "/about.html",
+  "/services.html",
+  "/projects.html",
+  "/contact.html",
   "/print-cv.html",
   "/abdullah-opt.webp",
   "/fonts/jost-latin.woff2",
