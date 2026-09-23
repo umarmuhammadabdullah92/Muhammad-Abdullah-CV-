@@ -4,12 +4,39 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skills — Muhammad Abdullah | Digital Marketer & Web Developer</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#a7791c">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<script>try{var s=localStorage.getItem('cv-theme');if(!s&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)s='dark';if(s==='dark')document.documentElement.setAttribute('data-theme','dark')}catch(e){}</script>
 <meta name="description" content="Professional CV of Muhammad Abdullah — Digital Marketer & Web Developer from Gujrat, Pakistan.">
 <link rel="preload" href="abdullah-opt.webp" as="image" fetchpriority="high">
 <link rel="preload" href="fonts/jost-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/playfair-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500 800;
+  font-display: swap;
+  src: url('fonts/playfair-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/playfair-italic-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url('fonts/jost-latin.woff2') format('woff2');
+}
 :root{
+  color-scheme: light;
   --bg:#f5f0e4;
   --paper:#fffdf7;
   --panel:#ffffff;
@@ -26,6 +53,58 @@
   --serif:'Playfair Display',Georgia,serif;
   --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
 }
+
+/* ---------- DARK MODE ---------- */
+[data-theme=dark]{
+  color-scheme: dark;
+  --bg:#11100c;
+  --paper:#1a1812;
+  --panel:#211c14;
+  --panel-2:#191610;
+  --ink:#efe7d6;
+  --muted:#a89c82;
+  --gold:#c79c35;
+  --gold-2:#e0bb4f;
+  --gold-3:#eacd77;
+  --gold-soft:rgba(199,156,53,.13);
+  --line:rgba(199,156,53,.22);
+  --shadow:0 24px 50px rgba(0,0,0,.5);
+}
+[data-theme=dark] .page{background:linear-gradient(180deg,#1c1912,var(--paper))}
+[data-theme=dark] aside{background:linear-gradient(180deg,var(--panel),var(--panel-2))}
+[data-theme=dark] .summary{background:linear-gradient(120deg,rgba(199,156,53,.1),rgba(255,255,255,.02));color:#d3c7ae}
+[data-theme=dark] .summary strong{color:var(--gold-3)}
+[data-theme=dark] .card,[data-theme=dark] .edu,[data-theme=dark] .contact-card,[data-theme=dark] .pagenav a{background:rgba(255,255,255,.04)}
+[data-theme=dark] .card:hover,[data-theme=dark] .edu:hover,[data-theme=dark] .contact-card:hover,[data-theme=dark] .pagenav a:hover{background:rgba(255,255,255,.07)}
+[data-theme=dark] .fact{background:linear-gradient(160deg,rgba(199,156,53,.09),rgba(255,255,255,.02))}
+[data-theme=dark] .fact:hover{background:rgba(255,255,255,.05)}
+[data-theme=dark] .goal{background:linear-gradient(120deg,rgba(199,156,53,.18),rgba(199,156,53,.05))}
+[data-theme=dark] .goal p{color:#d3c7ae}
+[data-theme=dark] .contact li,[data-theme=dark] .skill-top,[data-theme=dark] .fact .v,[data-theme=dark] .job ul,[data-theme=dark] .lang,[data-theme=dark] .goal p{color:#c9bda4}
+[data-theme=dark] .photo-frame{background:linear-gradient(160deg,#2a241a,#1e1912)}
+[data-theme=dark] .mob-bar{background:rgba(24,21,15,.95)}
+[data-theme=dark] .contact li:hover,[data-theme=dark] .topnav a:not(.active):hover{background:rgba(199,156,53,.14)}
+[data-theme=dark] .btn.ghost{color:var(--gold-2)}
+[data-theme=dark] .to-top{background:linear-gradient(180deg,#c79c35,#a7791c);color:#1c1710}
+[data-theme=dark] .edu-link:hover,[data-theme=dark] .proj-link:hover,[data-theme=dark] footer a:hover{color:var(--gold-2)}
+[data-theme=dark] .job::before{background:var(--paper);border-color:var(--gold)}
+[data-theme=dark] .photo-dot span{background:var(--gold)}
+[data-theme=dark] .proj-logo{background:#fff}
+
+/* ---------- THEME TOGGLE ---------- */
+.theme-btn{
+  position:fixed;right:18px;bottom:78px;z-index:60;
+  width:44px;height:44px;border-radius:50%;
+  border:1px solid rgba(167,121,28,.45);
+  background:rgba(250,246,237,.9);
+  color:#8a6413;font-size:1.05rem;line-height:1;cursor:pointer;
+  display:grid;place-items:center;
+  box-shadow:0 12px 26px rgba(88,66,20,.22);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:.25s;font-family:var(--sans);
+}
+.theme-btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(88,66,20,.32)}
+[data-theme=dark] .theme-btn{background:rgba(33,28,20,.95);color:#e0bb4f;border-color:rgba(224,187,79,.4)}
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -729,6 +808,7 @@ footer a:hover{color:var(--gold-3)}
   body{padding-bottom:30px}
   .mob-bar{display:none}
   section{margin-bottom:32px}
+  .theme-btn{bottom:24px;right:76px}
   .cards{grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
   .facts{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
   .contact-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
@@ -764,30 +844,9 @@ footer a:hover{color:var(--gold-3)}
   body{background:#fff;color:#222;padding:0}
   body::before,body::after,.scroll-progress{display:none}
   .page{box-shadow:none;border:1px solid #c9a227;border-radius:0;display:grid;grid-template-columns:300px 1fr;max-width:100%}
-  .btn,.topnav,.pagenav,.to-top,.mob-bar{display:none}
+  .btn,.topnav,.pagenav,.to-top,.mob-bar,.theme-btn{display:none}
   aside{background:#f7f3e8}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 500 800;
-  font-display: swap;
-  src: url('fonts/playfair-latin.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-weight: 500;
-  font-display: swap;
-  src: url('fonts/playfair-italic-500.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Jost';
-  font-style: normal;
-  font-weight: 300 600;
-  font-display: swap;
-  src: url('fonts/jost-latin.woff2') format('woff2');
-}
-:root{
+  :root{
     --text:#22201a;--muted:#6f664f;
     --line:rgba(129,93,30,.3);--panel:#f7f1e2;--panel-2:#f1e9d4;
     --gold:#a8851f;--gold-2:#8a6d1f;--gold-3:#6f5813;
@@ -844,11 +903,24 @@ footer a:hover{color:var(--gold-3)}
   section{margin-bottom:26px}
   h1{font-size:clamp(1.7rem, 6vmax, 2.2rem)}
   .kicker{letter-spacing:2.6px}
+
+  /* fixed controls sit above the sticky contact bar */
+  .to-top{bottom:86px;right:14px;width:46px;height:46px}
+  .theme-btn{bottom:86px;right:70px;width:46px;height:46px}
+
+  /* comfortable tap targets on links/cards */
+  .edu-link{padding:8px 2px}
+  .topnav a{padding:11px 15px}
+  .fact .k,.card .top{gap:8px}
+  .contact li{min-height:36px}
+  .pagenav a{padding:14px 12px}
 }
 
 </style>
 </head>
 <body>
+<button id="themeBtn" class="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">&#9681;</button>
+
 
 <div class="scroll-progress" id="scrollProgress"></div>
 <button class="to-top" id="toTop" aria-label="Back to top">&#9650;</button>
@@ -1044,5 +1116,19 @@ footer a:hover{color:var(--gold-3)}
 })();
 </script>
 
+
+<script>
+(function(){
+  function cur(){try{var s=localStorage.getItem('cv-theme');if(s)return s}catch(e){}return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}
+  var t=cur();
+  document.documentElement.setAttribute('data-theme',t);
+  var meta=document.querySelector('meta[name="theme-color"]');
+  function sync(){if(meta)meta.setAttribute('content',t==='dark'?'#11100c':'#a7791c')}
+  sync();
+  var btn=document.getElementById('themeBtn');
+  if(btn)btn.addEventListener('click',function(){t=t==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);sync();try{localStorage.setItem('cv-theme',t)}catch(e){}});
+  if('serviceWorker' in navigator&&location.protocol==='https:')addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})});
+})();
+</script>
 </body>
 </html>

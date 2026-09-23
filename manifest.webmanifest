@@ -1,0 +1,15 @@
+{
+  "name": "Muhammad Abdullah — Digital Marketer & Web Developer",
+  "short_name": "Abdullah CV",
+  "description": "Professional CV of Muhammad Abdullah — Digital Marketer & Web Developer from Gujrat, Pakistan.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f0e4",
+  "theme_color": "#a7791c",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
